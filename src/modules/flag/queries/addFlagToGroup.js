@@ -1,0 +1,29 @@
+import Group from '../../group/Model';
+import analytics from '../../analytics/controllers/analytics';
+import message from '../../utils/messages';
+
+export default function addFlagToGroup({ flagId, groupId }) {
+  return Group.updateOne(
+    { _id: groupId },
+    { $addToSet: { flag: flagId } },
+    { runValidators: true },
+  )
+    .exec()
+    .then((doc) => {
+      if (doc) {
+        return message.success('Ok', doc);
+      } else {
+        return message.fail('Group is not updated');
+      }
+    })
+    .catch((error) => {
+      //
+      analytics('FLAG_ADD_TO_GROUP_QUERY_ERROR', {
+        flagId,
+        groupId,
+        controller: 'addFlagToGroup',
+      });
+
+      throw new Error(error);
+    });
+}

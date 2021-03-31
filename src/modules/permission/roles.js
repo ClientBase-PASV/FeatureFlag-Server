@@ -8,12 +8,20 @@ const base = [
   'base.delete.own',
 ];
 
-const client = [
-  'client.create.own',
-  'client.get.own',
-  'client.search.own',
-  'client.update.own',
-  'client.delete.own',
+const group = [
+  'group.create.own',
+  'group.get.own',
+  'group.search.own',
+  'group.update.own',
+  'group.delete.own',
+];
+
+const flag = [
+  'flag.create.own',
+  'flag.get.own',
+  'flag.search.own',
+  'flag.update.own',
+  'flag.delete.own',
 ];
 
 const userAdmin = [
@@ -29,7 +37,7 @@ const userAdmin = [
 const roles = {
   new: ['user.auth'],
 
-  verified: ['user.auth', ...base, ...client],
+  verified: ['user.auth', ...base, ...flag, ...group],
 
   admin: [
     // USER
@@ -37,6 +45,8 @@ const roles = {
 
     // EXAMPLE
     ...base,
+
+    ...flag,
   ],
 
   // impersonate: [

@@ -16,15 +16,15 @@ export async function notifyAboutNewRole({ currentRoles, newRoles, email, name }
           <br/><br/>
           ${extraMessage.html}
           Thanks,<br/>
-          Your friends at ClientBase`,
+          Your friends at FeatureFlag`,
       text: `Hi ${name},\nYou got a new role – ${upperFirst(
         newRole,
       )}\n\nCheck your account for updates. Go to ${appLink}\n\n${
         extraMessage.text
-      }Thanks,\nYour friends at ClientBase`,
+      }Thanks,\nYour friends at FeatureFlag`,
     };
 
-    const subject = '[ClientBase] New role';
+    const subject = '[FeatureFlag] New role';
 
     await sendEmailViaAwsSes(email, subject, emailMessage);
   }

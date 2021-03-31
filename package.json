@@ -1,8 +1,8 @@
 {
-  "name": "ClientBase-server",
+  "name": "FeatureFlag-server",
   "version": "0.1.0",
   "private": true,
-  "description": "ClientBase server",
+  "description": "FeatureFlag server",
   "main": "index.js",
   "engines": {
     "node": "12.11.1",

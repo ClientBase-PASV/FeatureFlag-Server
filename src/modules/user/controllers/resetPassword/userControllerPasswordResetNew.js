@@ -15,8 +15,8 @@ const emailTemplate = () => {
     html: `Your password has been changed <br/>
           Use <a href=${link}>${link}</a> to login<br/><br/>
           Thanks,<br/>
-          Your friends at ClientBase`,
-    text: `Your password has been changed\nUse the link ${link} to login\n\nThanks,\nYour friends at ClientBase`,
+          Your friends at FeatureFlag`,
+    text: `Your password has been changed\nUse the link ${link} to login\n\nThanks,\nYour friends at FeatureFlag`,
   };
 };
 
@@ -60,7 +60,7 @@ const userPasswordResetNew = async (req, res) => {
       const updateHashResult = await updateHash({ userId, hashedPassword });
 
       if (updateHashResult.success) {
-        const subject = '[ClientBase] Your password has been changed';
+        const subject = '[FeatureFlag] Your password has been changed';
         await sendEmailViaAwsSes(user.email, subject, emailTemplate());
 
         analytics('USER_PASSWORD_CHANGE_SUCCESS', {
