@@ -7,7 +7,6 @@
   "scripts": {
     "clean": "rm -rf build && mkdir build",
     "build": "babel src -d build",
-    "heroku-postbuild": "npm install && babel src -d build",
     "start": "node build/index.js",
     "dev": "nodemon --inspect -r dotenv/config -r @babel/register src",
     "local": "NODE_ENV=local nodemon --inspect -r dotenv/config -r @babel/register src",

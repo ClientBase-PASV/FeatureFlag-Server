@@ -20,7 +20,7 @@ router.get(
   serviceHeader('groupStats'), // mark request
   userCheckAuth, // midlware  needed to check if user has rights to do the request
   userCheckPerm('group.search.own'), // midlware has rights to do this operation such as group.search.own
-  pauseController,
+  // pauseController,
   groupStats,
 );
 

@@ -10,8 +10,10 @@ import listRouter from '../lists/Routes';
 
 export default function routes(app) {
   app.use('/base', baseRouter);
+
   app.use('/flag', flagRouter);
   app.use('/group', groupRouter);
+
   app.use('/user', userRouter);
   app.use('/analytics', analyticsRouter);
 
