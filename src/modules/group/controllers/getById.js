@@ -27,9 +27,13 @@ const groupGetById = (req, res) => {
           flagMap[el.name] = el.value;
         });
 
-        console.log(doc);
+        const payload = {
+          name: doc.name,
+          description: doc.description,
+          flags: flagMap,
+        };
 
-        res.status(200).json(message.success('Get Group by id ok', flagMap));
+        res.status(200).json(message.success('Get Group by id ok', payload));
       } else {
         res.status(404).json(message.fail('No group for provided id'));
       }
